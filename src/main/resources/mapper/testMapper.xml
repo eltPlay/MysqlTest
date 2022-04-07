@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mysqltest.mapper.TestMapper" >
+
+    <select id="list" resultType="com.example.mysqltest.domain.Test1">
+        select `id`, `name`, `password` from `mybatistest`
+    </select>
+    <select id="queryTestById" resultType="com.example.mysqltest.mapper.TestMapper">
+        select id,name ,password from mybatistest where id = #{ida}
+    </select>
+    <insert id="insertTest1" parameterType="com.example.mysqltest.domain.Test1">
+        insert into mybatistest(id,name,password) values (#{id},#{name},#{password})
+    </insert>
+    <update id="updateTest" parameterType="com.example.mysqltest.domain.Test1">
+        update mybatistest
+        <set>
+            <if test="name!=null">name=#{name},</if>
+            <if test="password!=null">password=#{password}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteTest">
+        delete from mybatistestwhere id=#{id}
+    </delete>
+</mapper>
