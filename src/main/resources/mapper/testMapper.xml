@@ -5,9 +5,10 @@
     <select id="list" resultType="com.example.mysqltest.domain.Test1">
         select `id`, `name`, `password` from `mybatistest`
     </select>
-    <select id="queryTestById" resultType="com.example.mysqltest.mapper.TestMapper">
+    <select id="queryTestById" resultType="com.example.mysqltest.domain.Test1">
         select id,name ,password from mybatistest where id = #{ida}
     </select>
+    <select id="findall" resultType="com.example.mysqltest.domain.Test1"/>
     <insert id="insertTest1" parameterType="com.example.mysqltest.domain.Test1">
         insert into mybatistest(id,name,password) values (#{id},#{name},#{password})
     </insert>

@@ -2,6 +2,7 @@ package com.example.mysqltest.services;
 
 import com.example.mysqltest.domain.Test1;
 import com.example.mysqltest.mapper.TestMapper;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class TestService {
     public Test1 queryById(int id){
         return testMapper.queryTestById(id);
     }
-    public  boolean addtest(Test1 test1){
+    public  boolean addtest(@NotNull Test1 test1){
         if ((test1.getId() > 0 && !"".equals(test1.getId())) &&
                 (test1.getName() != null && !"".equals(test1.getName())) &&
                 (test1.getPassword() != null && !"".equals(test1.getPassword()))) {
@@ -38,7 +39,7 @@ public class TestService {
         }
     }
 
-    public boolean updateTest(Test1 test1){
+    public boolean updateTest(@NotNull Test1 test1){
 
         if(test1.getId()>0 && test1.getName()!=null && !"".equals(test1.getName())
                 && test1.getPassword()!=null && !"".equals(test1.getPassword())){

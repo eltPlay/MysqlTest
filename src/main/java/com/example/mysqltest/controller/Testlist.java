@@ -36,7 +36,8 @@ public class Testlist {
     @PostMapping("updatetest")
     public boolean update(Test1 test1){
         boolean b=testService.updateTest(test1);
-        return b;//在testmapper.xml中有顺序
+        return b;
+        //在testmapper.xml中有顺序
     }
     @GetMapping("/deletetest")
     public boolean delete(int id){
